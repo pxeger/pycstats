@@ -30,3 +30,10 @@ $ find . -name '*.pyc' | ./analyse_sequences.py 3
 81826 MAKE_FUNCTION STORE_NAME LOAD_CONST
 [...]
 ```
+
+To use with the Python standard library:
+
+```bash
+$ sudo python -m compileall
+$ find . /usr/lib/python3.9/ -name '*.pyc' | ./analyse_[...]
+```
