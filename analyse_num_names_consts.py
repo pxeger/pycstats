@@ -32,9 +32,13 @@ def main():
     n = len(results["names"])
     assert n == len(results["consts"])
 
-    for p in range(1, 4):
-        p = 256 ** p
-        print(f"proportion >={p}:", sum(sum(v) >= p for v in zip(*results.values())) / n)
+    results["total"] = [sum(v) for v in zip(*results.values())]
+
+    for r in (256, 256 ** 2):
+        print()
+        for k, v in results.items():
+            p = sum(x >= r for x in v) / n
+            print(f"{k:8} proportion >={r}: {p:.9f}")
 
 
 if __name__ == "__main__":
